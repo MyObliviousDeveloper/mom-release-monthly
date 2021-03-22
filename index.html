@@ -538,12 +538,6 @@ function UpdateLinks(Container) {
       var n = 1;
       for (i = 0; i < Links.length; i++) {
         if (!Links[i].id.includes("Link")) {
-          while ($(Container).find("#Link" + n).length) {
-            ++n;
-            if (n > 10) {
-              break;
-            }
-          }
           if (n < 10) {
             $("<sup>[" + n + "]</sup>").appendTo(Links[i]);
             Links[i].id = "Link" + n;
@@ -554,6 +548,8 @@ function UpdateLinks(Container) {
           } else {
             break;
           }
+
+          ++n;
         }
       }
     }
